@@ -39,7 +39,7 @@ Move the `case` to outside scope and add missing `Type[T]`, but failed again
       - but the access is at level 1.
 
 Seems because the `Foo` is defined in the top level scope (level 0), but derives
-declarations are defined in the Qutoes scope (level 1). This is not allowed in
+declarations are defined in the Quotes scope (level 1). This is not allowed in
 stage API, too.
 
 ### Case 3
@@ -48,7 +48,7 @@ stage API, too.
 sbt runMain Case3
 ```
 
-In case 3, just define orginal `class` and write companion object with custom
+In case 3, just define original `class` and write companion object with custom
 codec manually (`derive` feature requires case class). Codes compiled
 successfully, but failed in runtime. I'm not very sure whether it's caused by
 importing circe packages.
