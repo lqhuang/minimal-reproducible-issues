@@ -6,7 +6,7 @@ scalacOptions ++= Seq("-explain", "-Xcheck-macros")
 lazy val root = project
   .in(file("."))
   .settings(
-    name := "staging-with-case-class",
+    name := "staging-with-case-class-and-circe",
     version := "0.1.0-SNAPSHOT",
     scalaVersion := scala3Version,
     libraryDependencies ++= Seq(
