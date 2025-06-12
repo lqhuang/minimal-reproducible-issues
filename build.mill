@@ -1,0 +1,10 @@
+package build
+
+import mill._
+import mill.scalalib._
+import mill.scalanativelib._
+
+object `package` extends RootModule with ScalaNativeModule {
+  def scalaVersion = "3.3.4"
+  def scalaNativeVersion = "0.5.7"
+}

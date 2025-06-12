@@ -1,0 +1,13 @@
+### Scala ###
+*.class
+*.log
+target/
+
+### Metals ###
+.metals/
+.bloop/
+.bsp/
+project/**/metals.sbt
+
+### Mill ###
+out/
