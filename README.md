@@ -13,5 +13,7 @@ Create new orphan branch to add new example:
 
 ```sh
 git checkout --orphan <branchname>
-git clean -nx
+git reset HEAD -- # to unstage all files
+git clean -n # to see what will be removed
+#git clean -f # DANGEROUS: to remove all files
 ```
