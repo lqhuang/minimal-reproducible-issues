@@ -34,7 +34,7 @@ trait RedefModule extends CrossScalaModule with PlatformScalaModule {
   )
 }
 
-object redef extends Module {
+object demo extends Module {
   object jvm extends Cross[RedefModule](scalaVersions) {}
   trait JvmModule extends RedefModule with ScalaModule {
     object test extends ScalaTests with TestModule.Munit {
