@@ -7,7 +7,9 @@ import mill.{Agg}
 import mill.define.{Cross, Task}
 import mill.contrib.bloop.Bloop
 import scalalib.DepSyntax // for `ivy` string interpolator
-import scalalib.{CrossScalaModule, ScalaModule, TestModule, PlatformScalaModule}
+import scalalib.{CrossScalaModule, ScalaModule, TestModule, PublishModule, PlatformScalaModule}
+import scalalib.publish.{Developer, PomSettings, VersionControl}
+import scalalib.publish.License.Common.Apache2
 import scalalib.scalafmt.ScalafmtModule
 import scalajslib.ScalaJSModule
 import scalanativelib.ScalaNativeModule
@@ -19,7 +21,23 @@ def bloop = Bloop
 val scalaNextVersion = sys.props.get("scalaNextVersion")
 val scalaVersions = Seq("3.7.1") ++ scalaNextVersion
 
-trait RedefModule extends CrossScalaModule with PlatformScalaModule {
+trait DemoPublishModule extends PublishModule {
+  def pomSettings = PomSettings(
+    description = "Demo for different implementations of Result in Scala 3",
+    organization = "io.lqhuang",
+    url = "https://github.com/lqhuang/minimal-reproducible-issues/tree/different-result-impls-for-scala-3",
+    licenses = Seq(Apache2),
+    versionControl = VersionControl.github("lqhuang", "minimal-reproducible-issues", Some("different-result-impls-for-scala-3")),
+    developers = Seq(
+      Developer("lqhuang", "Lanqing Huang", "https://github.com/lqhuang"),
+    ),
+  )
+
+  def publishVersion = "SNAPSHOT"
+}
+
+
+trait DemoModule extends CrossScalaModule with DemoPublishModule with PlatformScalaModule {
   def scalacOptions = Seq(
     "-source:future",
     "-language:experimental.namedTypeArguments",
@@ -35,15 +53,15 @@ trait RedefModule extends CrossScalaModule with PlatformScalaModule {
 }
 
 object demo extends Module {
-  object jvm extends Cross[RedefModule](scalaVersions) {}
-  trait JvmModule extends RedefModule with ScalaModule {
+  object jvm extends Cross[DemoModule](scalaVersions) {}
+  trait JvmModule extends DemoModule with ScalaModule {
     object test extends ScalaTests with TestModule.Munit {
       def ivyDeps = Agg(ivy"org.scalameta::munit:1.0.4")
     }
   }
 
-  object js extends Cross[RedefModule](scalaVersions) {  }
-  trait JsModule extends RedefModule with ScalaJSModule {
+  object js extends Cross[DemoModule](scalaVersions) {  }
+  trait JsModule extends DemoModule with ScalaJSModule {
     object test extends ScalaJSTests with TestModule.Munit {
       def ivyDeps = Agg(
         ivy"org.scalameta::munit::1.0.4",
@@ -51,8 +69,8 @@ object demo extends Module {
     }
   }
 
-  object native extends Cross[RedefModule](scalaVersions) {}
-  trait NativeModule extends RedefModule with ScalaNativeModule {
+  object native extends Cross[DemoModule](scalaVersions) {}
+  trait NativeModule extends DemoModule with ScalaNativeModule {
   def scalaNativeVersion = "0.5.7"
 
   def scalacOptions = super.scalacOptions() ++ Seq(

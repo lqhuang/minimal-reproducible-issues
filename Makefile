@@ -5,15 +5,17 @@ MODULE := demo
 bloop:
 	${MILL} bloop.install
 
+resolve-all:
+	${MILL} resolve __
 
 jvm-compile:
-	${MILL} -i ${MODULE}.jvm[].compile
+	${MILL} ${MODULE}.jvm[].compile
 
 js-compile:
-	${MILL} -i ${MODULE}.js[].compile
+	${MILL} ${MODULE}.js[].compile
 
 native-compile:
-	${MILL} -i ${MODULE}.native[].compile
+	${MILL} ${MODULE}.native[].compile
 
 .PHONY: compile
 compile: jvm-compile js-compile native-compile
