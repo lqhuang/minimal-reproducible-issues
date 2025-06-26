@@ -4,19 +4,19 @@ import scala.annotation.{implicitNotFound, experimental}
 import scala.collection.immutable.Seq
 import scala.annotation.targetName
 
-case class Ok[+T, +E](value: T) extends AnyVal with Serializable {
+case class Ok[+T](value: T) extends AnyVal with Serializable {
   def intoOk: T = value
 
-  def withFailure[F >: E]: Result[T, F] = this
+  // def withFailure[F >: E]: Result[T, F] = this
 }
 object Ok {
   val unit: Result[Unit, Nothing] = Ok(())
 }
 
-case class Failure[+T, +E](err: E) extends AnyVal with Serializable {
+case class Failure[+E](err: E) extends AnyVal with Serializable {
   def intoFailure: E = err
 
-  def withOk[U >: T]: Result[U, E] = this
+  // def withOk[U >: T]: Result[U, E] = this
 }
 object Failure {
   val unit: Result[Nothing, Unit] = Failure(())

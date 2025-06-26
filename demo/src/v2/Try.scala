@@ -46,33 +46,6 @@ extension [T](result: Try[T]) {
   inline final def withFilter(pred: T => Boolean): WithFilter[T] =
     WithFilter(result, pred)
 
-  def recoverWith[U >: T](
-      pf: PartialFunction[Throwable, Try[U]]
-  ): Try[U] =
-    result match {
-      case Ok(_) => result
-      case Failure(exception) =>
-        val marker = Statics.pfMarker
-        try
-          val v = pf.applyOrElse(exception, (x: Throwable) => marker)
-          if marker ne v.asInstanceOf[AnyRef]
-          then v.asInstanceOf[Try[U]]
-          else result
-        catch case NonFatal(e) => Failure(e)
-    }
-
-  def recover[U >: T](pf: PartialFunction[Throwable, U]): Try[U] =
-    result match {
-      case Ok(_) => result
-      case Failure(exc) =>
-        val marker = Statics.pfMarker
-        try
-          if pf.isDefinedAt(exc)
-          then Ok(pf(exc))
-          else result
-        catch case NonFatal(e) => Failure(e)
-    }
-
 }
 
 object Try {

@@ -19,3 +19,6 @@ native-compile:
 
 .PHONY: compile
 compile: jvm-compile js-compile native-compile
+
+clean:
+	${MILL} clean

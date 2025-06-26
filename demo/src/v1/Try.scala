@@ -1,4 +1,4 @@
-package demo.v2
+package demo.v1
 
 import scala.runtime.Statics
 import scala.util.control.NonFatal
