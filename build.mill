@@ -1,0 +1,71 @@
+package build
+
+import $ivy.`com.lihaoyi::mill-contrib-bloop:`
+
+import mill.{scalalib, scalajslib, scalanativelib, Module}
+import mill.{Agg}
+import mill.define.{Cross, Task}
+import mill.contrib.bloop.Bloop
+import scalalib.DepSyntax // for `ivy` string interpolator
+import scalalib.{CrossScalaModule, ScalaModule, TestModule, PlatformScalaModule}
+import scalalib.scalafmt.ScalafmtModule
+import scalajslib.ScalaJSModule
+import scalanativelib.ScalaNativeModule
+import scalanativelib.api.{LTO, ReleaseMode}
+
+def format = ScalafmtModule
+def bloop = Bloop
+
+val scalaNextVersion = sys.props.get("scalaNextVersion")
+val scalaVersions = Seq("3.7.1") ++ scalaNextVersion
+
+trait RedefModule extends CrossScalaModule with PlatformScalaModule {
+  def scalacOptions = Seq(
+    "-source:future",
+    "-language:experimental.namedTypeArguments",
+    "-language:experimental.genericNumberLiterals",
+    "-language:experimental.erasedDefinitions",
+    "-language:experimental.saferExceptions",
+    "-language:experimental.pureFunctions",
+    "-language:experimental.captureChecking",
+    "-language:experimental.into",
+    "-language:experimental.modularity",
+    "-Yexplicit-nulls",
+  )
+}
+
+object redef extends Module {
+  object jvm extends Cross[RedefModule](scalaVersions) {}
+  trait JvmModule extends RedefModule with ScalaModule {
+    object test extends ScalaTests with TestModule.Munit {
+      def ivyDeps = Agg(ivy"org.scalameta::munit:1.0.4")
+    }
+  }
+
+  object js extends Cross[RedefModule](scalaVersions) {  }
+  trait JsModule extends RedefModule with ScalaJSModule {
+    object test extends ScalaJSTests with TestModule.Munit {
+      def ivyDeps = Agg(
+        ivy"org.scalameta::munit::1.0.4",
+      )
+    }
+  }
+
+  object native extends Cross[RedefModule](scalaVersions) {}
+  trait NativeModule extends RedefModule with ScalaNativeModule {
+  def scalaNativeVersion = "0.5.7"
+
+  def scalacOptions = super.scalacOptions() ++ Seq(
+    "-P:scalanative:genStaticForwardersForNonTopLevelObjects"
+  )
+
+  def releaseMode = ReleaseMode.Debug
+
+  def nativeLTO = LTO.Thin
+
+  def nativeIncrementalCompilation = true
+  object test extends ScalaNativeTests with TestModule.Munit {
+      def ivyDeps = Agg(ivy"org.scalameta::munit::1.0.4")
+    }
+  }
+}
