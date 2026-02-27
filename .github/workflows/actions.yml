@@ -15,11 +15,12 @@ env:
 
 jobs:
   test-libcurl-uninstalled:
-    runs-on: "${{ matrix.platform == 'windows' && 'windows-latest' || 'ubuntu-latest'  }}"
+    runs-on: "${{ matrix.platform }}"
     strategy:
       matrix:
-        platform: [unix, windows]
-        verbose: [verbose, non-verbose]
+        platform: [ubuntu-latest, windows-latest, macos-latest]
+        verbose: [verbose, nonVerbose]
+      fail-fast: false
     steps:
       - uses: actions/setup-java@v5
         with:
@@ -45,9 +46,9 @@ jobs:
   test-libcurl-installed:
     runs-on: "${{ matrix.platform }}"
     strategy:
-      # fail-fast: false
+      fail-fast: false
       matrix:
-        platform: [ubuntu-latest, windows-latest]
+        platform: [ubuntu-latest, windows-latest, macos-latest]
         verbose: [verbose, nonVerbose]
     steps:
       - uses: actions/setup-java@v5
@@ -58,18 +59,23 @@ jobs:
 
       ## difference from test-libcurl-uninstalled: install libcurl via vcpkg or apt-get
 
-      - id: run-vcpkg
+      - name: Install Dependencies - Windows
         if: ${{ matrix.platform == 'windows-latest' }}
         uses: lukka/run-vcpkg@v11.5
         with:
           runVcpkgInstall: true
           doNotCache: false
 
-      - name: Install Dependencies
+      - name: Install Dependencies - Linux
         if: ${{ matrix.platform == 'ubuntu-latest' }}
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev
+
+      - name: Install Dependencies - macOS
+        if: ${{ matrix.platform == 'macos-latest' }}
+        run: |
+          brew install curl openssl@3
 
       ## end of difference
 
