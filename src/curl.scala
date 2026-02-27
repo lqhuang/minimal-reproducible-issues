@@ -5,10 +5,16 @@ import scala.scalanative.unsafe.{extern, name, link, define, CString}
 
 object functions:
 
-  @extern @link("libcurl") @link("libssl") @link("libcrypto") @link("crypt32")
+  @extern
+  @link("libcurl")
+  @link("crypt32")
+  @link("zlib")
+  @link("libssl")
+  @link("libcrypto")
   private object CurlFunctionsWindows extends functions
 
-  @extern @link("curl")
+  @extern
+  @link("curl")
   private object CurlFunctionsUnix extends functions
 
   val _functions = if isWindows then CurlFunctionsWindows else CurlFunctionsUnix

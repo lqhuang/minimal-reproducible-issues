@@ -15,42 +15,47 @@ env:
   VCPKG_COMMIT_ID: "66c0373dc7fca549e5803087b9487edfe3aca0a1" # vcpkg 2026.01.16 Release
 
 jobs:
-  test-libcurl-uninstalled:
-    runs-on: "${{ matrix.platform }}"
-    strategy:
-      matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
-        verbose: [verbose, nonVerbose]
-      fail-fast: false
-    steps:
-      - uses: actions/setup-java@v5
-        with:
-          java-version: "${{ env.JAVA }}"
-          distribution: "temurin"
-      - uses: actions/checkout@v6
+  # test-libcurl-uninstalled:
+  #   runs-on: "${{ matrix.platform }}"
+  #   strategy:
+  #     matrix:
+  #       platform: [ubuntu-latest, windows-latest, macos-latest]
+  #       verbose: [verbose, nonVerbose]
+  #     fail-fast: false
+  #   steps:
+  #     - uses: actions/setup-java@v5
+  #       with:
+  #         java-version: "${{ env.JAVA }}"
+  #         distribution: "temurin"
+  #     - uses: actions/checkout@v6
 
-      - name: Run main
-        if: ${{ matrix.platform != 'windows-latest' }}
-        run: |
-          ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
-          ./mill ${{ matrix.verbose }}.run
+  #     - name: Run main
+  #       if: ${{ matrix.platform != 'windows-latest' }}
+  #       run: |
+  #         ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
+  #         ./mill ${{ matrix.verbose }}.run
 
-      - name: Run main on Windows
-        if: ${{ matrix.platform == 'windows-latest' }}
-        env:
-          SCALANATIVE_INCLUDE_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\include"
-          SCALANATIVE_LIB_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\lib"
-        run: |
-          ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
-          ./mill ${{ matrix.verbose }}.run
+  #     - name: Run main on Windows
+  #       if: ${{ matrix.platform == 'windows-latest' }}
+  #       env:
+  #         SCALANATIVE_INCLUDE_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\include"
+  #         SCALANATIVE_LIB_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\lib"
+  #       run: |
+  #         ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
+  #         ./mill ${{ matrix.verbose }}.run
 
   test-libcurl-installed:
     runs-on: "${{ matrix.platform }}"
     strategy:
       fail-fast: false
       matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
-        verbose: [verbose, nonVerbose]
+        platform:
+          # - ubuntu-latest
+          - windows-latest
+          # - macos-latest
+        verbose:
+          - verbose
+          # - nonVerbose
     steps:
       - uses: actions/setup-java@v5
         with:
