@@ -7,11 +7,12 @@ on:
   workflow_dispatch: # be able to manually trigger a workflow run
 
 env:
-  VCPKG_FEATURE_FLAGS: dependencygraph
   JAVA: "21"
+  VCPKG_FEATURE_FLAGS: dependencygraph
   VCPKG_DEFAULT_TRIPLET: "x64-windows-static"
   VCPKG_ROOT: "${{ github.workspace }}\\vcpkg"
   VCPKG_INSTALLED_DIR: "${{ github.workspace }}\\vcpkg\\installed"
+  VCPKG_COMMIT_ID: "66c0373dc7fca549e5803087b9487edfe3aca0a1" # vcpkg 2026.01.16 Release
 
 jobs:
   test-libcurl-uninstalled:
@@ -63,6 +64,7 @@ jobs:
         if: ${{ matrix.platform == 'windows-latest' }}
         uses: lukka/run-vcpkg@v11.5
         with:
+          vcpkgGitCommitId: "${{ env.VCPKG_COMMIT_ID }}"
           runVcpkgInstall: true
           doNotCache: false
 
