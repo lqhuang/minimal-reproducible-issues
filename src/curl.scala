@@ -8,7 +8,7 @@ object functions:
   @extern @link("curl") @link("crypt32")
   private object CurlFunctionsWindows extends functions
 
-  @extern @link("curl")
+  @extern @link("libcurl")
   private object CurlFunctionsUnix extends functions
 
   val _functions = if isWindows then CurlFunctionsWindows else CurlFunctionsUnix
