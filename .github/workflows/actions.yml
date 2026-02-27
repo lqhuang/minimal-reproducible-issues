@@ -1,0 +1,89 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - mill-scala-native-verbose-linker-options
+  workflow_dispatch: # be able to manually trigger a workflow run
+
+env:
+  VCPKG_FEATURE_FLAGS: dependencygraph
+  JAVA: "21"
+  VCPKG_DEFAULT_TRIPLET: "x64-windows-static"
+  VCPKG_ROOT: "${{ github.workspace }}\\vcpkg"
+  VCPKG_INSTALLED_DIR: "${{ github.workspace }}\\vcpkg\\installed"
+
+jobs:
+  test-libcurl-uninstalled:
+    runs-on: "${{ matrix.platform == 'windows' && 'windows-latest' || 'ubuntu-latest'  }}"
+    strategy:
+      matrix:
+        platform: [unix, windows]
+        verbose: [verbose, non-verbose]
+    steps:
+      - uses: actions/setup-java@v5
+        with:
+          java-version: "${{ env.JAVA }}"
+          distribution: "temurin"
+      - uses: actions/checkout@v6
+
+      - name: Run main
+        if: ${{ matrix.platform != 'windows-latest' }}
+        run: |
+          ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
+          ./mill ${{ matrix.verbose }}.run
+
+      - name: Run main on Windows
+        if: ${{ matrix.platform == 'windows-latest' }}
+        env:
+          SCALANATIVE_INCLUDE_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\include"
+          SCALANATIVE_LIB_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\lib"
+        run: |
+          ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
+          ./mill ${{ matrix.verbose }}.run
+
+  test-libcurl-installed:
+    runs-on: "${{ matrix.platform }}"
+    strategy:
+      # fail-fast: false
+      matrix:
+        platform: [ubuntu-latest, windows-latest]
+        verbose: [verbose, nonVerbose]
+    steps:
+      - uses: actions/setup-java@v5
+        with:
+          java-version: "${{ env.JAVA }}"
+          distribution: "temurin"
+      - uses: actions/checkout@v6
+
+      ## difference from test-libcurl-uninstalled: install libcurl via vcpkg or apt-get
+
+      - id: run-vcpkg
+        if: ${{ matrix.platform == 'windows-latest' }}
+        uses: lukka/run-vcpkg@v11.5
+        with:
+          runVcpkgInstall: true
+          doNotCache: false
+
+      - name: Install Dependencies
+        if: ${{ matrix.platform == 'ubuntu-latest' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev
+
+      ## end of difference
+
+      - name: Run main
+        if: ${{ matrix.platform != 'windows-latest' }}
+        run: |
+          ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
+          ./mill ${{ matrix.verbose }}.run
+
+      - name: Run main on Windows
+        if: ${{ matrix.platform == 'windows-latest' }}
+        env:
+          SCALANATIVE_INCLUDE_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\include"
+          SCALANATIVE_LIB_DIRS: "${{ env.VCPKG_INSTALLED_DIR }}\\${{ env.VCPKG_DEFAULT_TRIPLET }}\\lib"
+        run: |
+          ./mill show ${{ matrix.verbose }}.nativeLinkingOptions
+          ./mill ${{ matrix.verbose }}.run

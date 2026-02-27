@@ -1,0 +1,17 @@
+package build
+
+import mill.scalanativelib.ScalaNativeModule
+import mill.api.{PathRef, Task}
+
+trait CommonModule extends ScalaNativeModule:
+
+  def allSources = Task.Sources(super.moduleDir / os.up / "src")
+
+  def scalaVersion = "3.3.7"
+
+  def scalaNativeVersion = "0.5.10"
+
+object nonVerbose extends CommonModule
+
+object verbose extends CommonModule:
+  def nativeLinkingOptions = super.nativeLinkingOptions() ++ Seq("-v")
