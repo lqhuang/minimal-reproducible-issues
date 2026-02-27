@@ -5,7 +5,7 @@ import scala.scalanative.unsafe.{extern, name, link, define, CString}
 
 object functions:
 
-  @extern @link("libcurl") @link("libssl") @link("libcrypto")
+  @extern @link("libcurl") @link("libssl") @link("libcrypto") @link("crypt32")
   private object CurlFunctionsWindows extends functions
 
   @extern @link("curl")
