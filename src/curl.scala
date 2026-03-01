@@ -6,7 +6,7 @@ import scala.scalanative.unsafe.{extern, name, link, define, CString}
 object functions:
 
   @extern
-  @link("curl")
+  @link("libcurl")
   @link("Crypt32")
   @link("Secur32") // required after curl 8.15.0
   @link("Iphlpapi") // required after curl 8.15.0
