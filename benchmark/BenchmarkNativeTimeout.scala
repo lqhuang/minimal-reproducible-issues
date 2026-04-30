@@ -157,7 +157,8 @@ object Test {
           val cause = ex.getCause()
           if (cause.isInstanceOf[TimeoutException]) {
             timeoutCount += 1
-            if (verbose) println(f"Iteration ${i + 1}: Timeout")
+            if (verbose || (i % 10 == 0))
+              println(f"Iteration ${i + 1}: Timeout")
           } else {
             failureCount += 1
             System.err.println(
@@ -171,7 +172,7 @@ object Test {
     }
 
     println(
-      f"Loop completed: ${successCount} successes (${successCount / count}%3.4f), ${timeoutCount} timeouts (${timeoutCount / count}%3.4f), ${failureCount} failures, total ${count} iterations."
+      f"Loop completed: ${successCount} successes (${successCount.toDouble / count}%3.4f), ${timeoutCount} timeouts (${timeoutCount.toDouble / count}%3.4f), ${failureCount} failures (${failureCount.toDouble / count}%3.4f), total ${count} iterations."
     )
     (successCount, timeoutCount, failureCount, times)
   }

@@ -3,33 +3,41 @@ import java.util.concurrent._
 object Test {
 
   def main(args: Array[String]): Unit = {
+    println("Hello, World!")
 
-    val WARMUP_RUNS = 5
+    val WARMUP_RUNS = 10
     val BENCHMARK_RUNS = 100
     val NPS: Long = 1000L * 1000 * 1000
     val ITEMS = 1 << 20
 
-    // SubmissionPublisherLoops4Test
     println(s"-- Benchmark for SubmissionPublisherLoops4Test --")
     println("-- Warming up ...")
     loopStatisticsWithTimeout(
       () => SubmissionPublisherLoops4Test(ITEMS).main(),
       WARMUP_RUNS,
-      timeoutSecs = 300L,
+      timeoutSecs = 10L,
       verbose = true
     )
     println("-- Running benchmark ...")
-    val (_, _, _, times4) = loopStatisticsWithTimeout(
-      () => SubmissionPublisherLoops4Test(ITEMS).main(),
-      20,
-      timeoutSecs = 300L,
-      verbose = false
-    )
+    val (successCount, timeoutCount, failureCount, times) =
+      loopStatisticsWithTimeout(
+        () => SubmissionPublisherLoops4Test(ITEMS).main(),
+        BENCHMARK_RUNS,
+        timeoutSecs = 10L,
+        verbose = true
+      )
     println("-- Statistics:")
-    println(f" Average time: ${average(times4)}%7.3f seconds")
-    println(f" Std Dev time: ${stddev(times4)}%7.3f seconds")
+    println(f" Average time: ${average(times)}%6.4f seconds")
+    println(f" Std Dev time: ${stddev(times)}%6.4f seconds")
+    println(f"        Total: ${BENCHMARK_RUNS}%5d runs")
+    println(f"    Successes: ${successCount}%5d runs")
+    println(f"    Succ Rate: ${successCount.toDouble / BENCHMARK_RUNS}%.6f")
+    println(f"     Timeouts: ${timeoutCount}%5d runs")
+    println(f" Timeout Rate: ${timeoutCount.toDouble / BENCHMARK_RUNS}%.6f")
+    println(f"     Failures: ${failureCount}%5d runs")
+    println(f" Failure Rate: ${failureCount.toDouble / BENCHMARK_RUNS}%.6f")
     println(s"-- End of SubmissionPublisherLoops4Test session --")
-
+    println("")
   }
 
   def average(xs: List[Double]): Double =
@@ -66,7 +74,7 @@ object Test {
         times = times.appended(timeSeconds)
         if (verbose || (i % 10 == 0))
           println(
-            f"Iteration ${i + 1}: Success, per step time: ${timeSeconds}%7.3f seconds"
+            f"Iteration ${i + 1}%04d: Success, per iter time: ${timeSeconds}%6.4f seconds"
           )
         successCount += 1
       } catch {
@@ -74,12 +82,14 @@ object Test {
           val cause = ex.getCause()
           if (cause.isInstanceOf[TimeoutException]) {
             timeoutCount += 1
-            if (verbose) println(f"Iteration ${i + 1}: Timeout")
+            if (verbose || (i % 10 == 0))
+              println(f"Iteration ${i + 1}%04d: Timeout")
           } else {
             failureCount += 1
             System.err.println(
-              f"Iteration ${i + 1}: Failure, exception: ${cause}"
+              f"Iteration ${i + 1}%04d: Failure, exception: ${cause}"
             )
+            ex.printStackTrace(System.err)
           }
         }
       } finally {
@@ -87,9 +97,6 @@ object Test {
       }
     }
 
-    println(
-      f"Loop completed: ${successCount} successes (${successCount / count}%3.4f), ${timeoutCount} timeouts (${timeoutCount / count}%3.4f), ${failureCount} failures, total ${count} iterations."
-    )
     (successCount, timeoutCount, failureCount, times)
   }
 

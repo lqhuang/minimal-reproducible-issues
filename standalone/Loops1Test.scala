@@ -5,54 +5,39 @@ object Test {
   def main(args: Array[String]): Unit = {
     println("Hello, World!")
 
-    val WARMUP_RUNS = 5
-    val BENCHMARK_RUNS = 20
+    val WARMUP_RUNS = 10
+    val BENCHMARK_RUNS = 100
     val NPS: Long = 1000L * 1000 * 1000
     val ITEMS = 1 << 20
 
     println(s"-- Benchmark for SubmissionPublisherLoops1Test --")
     println("-- Warming up ...")
-    for (j <- 0 until WARMUP_RUNS) {
-      print(f"Run warmup step ${j + 1} ...  ")
-      val tic = System.nanoTime()
-      SubmissionPublisherLoops1Test(ITEMS).main()
-      val toc = System.nanoTime()
-      val timeSeconds = (toc - tic).toDouble / NPS
-      println(f"  per step time: ${timeSeconds}%7.3f seconds")
-      Thread.sleep(1000L)
-    }
-    var times1: List[Double] = List()
+    loopStatisticsWithTimeout(
+      () => SubmissionPublisherLoops1Test(ITEMS).main(),
+      WARMUP_RUNS,
+      timeoutSecs = 10L,
+      verbose = true
+    )
     println("-- Running benchmark ...")
-    for (j <- 0 until BENCHMARK_RUNS) {
-      println(f"Run benchmark step ${j + 1} ...")
-      try {
-        val tic = System.nanoTime()
-        CompletableFuture
-          .runAsync(() => {
-            SubmissionPublisherLoops1Test(ITEMS).main()
-          })
-          .orTimeout(10L, TimeUnit.SECONDS)
-          .join()
-        val toc = System.nanoTime()
-        val timeSeconds = (toc - tic).toDouble / NPS
-        times1 = times1.appended(timeSeconds)
-        println(f"  per step time: ${timeSeconds}%7.3f seconds")
-      } catch {
-        case ex: CompletionException => {
-          val cause = ex.getCause()
-          if (cause.isInstanceOf[TimeoutException]) {
-            println(f"  Step ${j + 1} timed out.")
-          } else throw ex
-        }
-      }
-
-      Thread.sleep(1000L)
-    }
+    val (successCount, timeoutCount, failureCount, times) =
+      loopStatisticsWithTimeout(
+        () => SubmissionPublisherLoops1Test(ITEMS).main(),
+        BENCHMARK_RUNS,
+        timeoutSecs = 10L,
+        verbose = true
+      )
     println("-- Statistics:")
-    println(f" Average time: ${average(times1)}%7.3f seconds")
-    println(f" Std Dev time: ${stddev(times1)}%7.3f seconds")
+    println(f" Average time: ${average(times)}%6.4f seconds")
+    println(f" Std Dev time: ${stddev(times)}%6.4f seconds")
+    println(f"        Total: ${BENCHMARK_RUNS}%5d runs")
+    println(f"    Successes: ${successCount}%5d runs")
+    println(f"    Succ Rate: ${successCount.toDouble / BENCHMARK_RUNS}%.6f")
+    println(f"     Timeouts: ${timeoutCount}%5d runs")
+    println(f" Timeout Rate: ${timeoutCount.toDouble / BENCHMARK_RUNS}%.6f")
+    println(f"     Failures: ${failureCount}%5d runs")
+    println(f" Failure Rate: ${failureCount.toDouble / BENCHMARK_RUNS}%.6f")
     println(s"-- End of SubmissionPublisherLoops1Test session --")
-
+    println("")
   }
 
   def average(xs: List[Double]): Double =
@@ -87,9 +72,9 @@ object Test {
         val toc = System.nanoTime()
         val timeSeconds = (toc - tic).toDouble / (1000L * 1000 * 1000)
         times = times.appended(timeSeconds)
-        if (verbose)
+        if (verbose || (i % 10 == 0))
           println(
-            f"Iteration ${i + 1}: Success, per iter time: ${timeSeconds}%7.3f seconds"
+            f"Iteration ${i + 1}%04d: Success, per iter time: ${timeSeconds}%6.4f seconds"
           )
         successCount += 1
       } catch {
@@ -97,12 +82,14 @@ object Test {
           val cause = ex.getCause()
           if (cause.isInstanceOf[TimeoutException]) {
             timeoutCount += 1
-            if (verbose) println(f"Iteration ${i + 1}: Timeout")
+            if (verbose || (i % 10 == 0))
+              println(f"Iteration ${i + 1}%04d: Timeout")
           } else {
             failureCount += 1
             System.err.println(
-              f"Iteration ${i + 1}: Failure, exception: ${cause}"
+              f"Iteration ${i + 1}%04d: Failure, exception: ${cause}"
             )
+            ex.printStackTrace(System.err)
           }
         }
       } finally {
@@ -110,9 +97,6 @@ object Test {
       }
     }
 
-    println(
-      s"Loop completed: ${successCount} successes, ${timeoutCount} timeouts, ${failureCount} failures, total ${count} iterations."
-    )
     (successCount, timeoutCount, failureCount, times)
   }
 

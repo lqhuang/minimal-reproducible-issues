@@ -1,27 +1,18 @@
-import java.util.concurrent._
+//> using scala 3.8.3
 
-import scala.scalanative.meta.LinktimeInfo._
+import java.util.concurrent._
 
 object Test {
 
   def main(args: Array[String]): Unit = {
     println("Hello, World!")
-    println(
-      s"""
-       Linktime Info collection:
-         debugMode: ${debugMode}
-         releaseMode: ${releaseMode}
-         runtimeVersion: ${runtimeVersion}
-         garbageCollector: ${garbageCollector}
-         isWeakReferenceSupported: ${isWeakReferenceSupported}
-         isMultithreadingEnabled: ${isMultithreadingEnabled}
-         isContinuationsSupported: ${isContinuationsSupported}
+    println(s"""
+       Run on JVM version: ${System.getProperty("java.version")}
        ForkJoinPool.commonPool() info:
          POOL_PARALLELISM: ${ForkJoinPool.commonPool().getParallelism()}
          POOL_ASYNC_MODE: ${ForkJoinPool.commonPool().getAsyncMode()}
          POOL_SIZE: ${ForkJoinPool.commonPool().getPoolSize()}
-       """.stripIndent()
-    )
+       """.stripIndent())
     println("")
 
     val WARMUP_RUNS = 5
@@ -157,7 +148,8 @@ object Test {
           val cause = ex.getCause()
           if (cause.isInstanceOf[TimeoutException]) {
             timeoutCount += 1
-            if (verbose) println(f"Iteration ${i + 1}: Timeout")
+            if (verbose || (i % 10 == 0))
+              println(f"Iteration ${i + 1}: Timeout")
           } else {
             failureCount += 1
             System.err.println(
@@ -171,7 +163,7 @@ object Test {
     }
 
     println(
-      f"Loop completed: ${successCount} successes (${successCount / count}%3.4f), ${timeoutCount} timeouts (${timeoutCount / count}%3.4f), ${failureCount} failures, total ${count} iterations."
+      f"Loop completed: ${successCount} successes (${successCount.toDouble / count}%3.4f), ${timeoutCount} timeouts (${timeoutCount.toDouble / count}%3.4f), ${failureCount} failures (${failureCount.toDouble / count}%3.4f), total ${count} iterations."
     )
     (successCount, timeoutCount, failureCount, times)
   }
