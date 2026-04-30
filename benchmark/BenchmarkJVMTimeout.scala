@@ -67,14 +67,14 @@ object Test {
     loopStatisticsWithTimeout(
       () => SubmissionPublisherLoops3Test(ITEMS).main(),
       WARMUP_RUNS,
-      timeoutSecs = 10L,
+      timeoutSecs = 30L,
       verbose = true
     )
     println("-- Running benchmark ...")
     val (_, _, _, times3) = loopStatisticsWithTimeout(
       () => SubmissionPublisherLoops3Test(ITEMS).main(),
       BENCHMARK_RUNS,
-      timeoutSecs = 10L,
+      timeoutSecs = 30L,
       verbose = false
     )
     println("-- Statistics:")

@@ -1,3 +1,6 @@
+//> using scala 3.8.3
+//> using platform native
+
 import java.util.concurrent._
 
 import scala.scalanative.meta.LinktimeInfo._

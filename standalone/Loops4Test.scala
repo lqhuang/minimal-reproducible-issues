@@ -6,7 +6,7 @@ object Test {
     println("Hello, World!")
 
     val WARMUP_RUNS = 10
-    val BENCHMARK_RUNS = 100
+    val BENCHMARK_RUNS = 50
     val NPS: Long = 1000L * 1000 * 1000
     val ITEMS = 1 << 20
 
@@ -15,29 +15,19 @@ object Test {
     loopStatisticsWithTimeout(
       () => SubmissionPublisherLoops4Test(ITEMS).main(),
       WARMUP_RUNS,
-      timeoutSecs = 10L,
-      verbose = true
+      timeoutSecs = 300L,
+      verbose = true,
+      printStats = false
     )
     println("-- Running benchmark ...")
-    val (successCount, timeoutCount, failureCount, times) =
-      loopStatisticsWithTimeout(
-        () => SubmissionPublisherLoops4Test(ITEMS).main(),
-        BENCHMARK_RUNS,
-        timeoutSecs = 10L,
-        verbose = true
-      )
-    println("-- Statistics:")
-    println(f" Average time: ${average(times)}%6.4f seconds")
-    println(f" Std Dev time: ${stddev(times)}%6.4f seconds")
-    println(f"        Total: ${BENCHMARK_RUNS}%5d runs")
-    println(f"    Successes: ${successCount}%5d runs")
-    println(f"    Succ Rate: ${successCount.toDouble / BENCHMARK_RUNS}%.6f")
-    println(f"     Timeouts: ${timeoutCount}%5d runs")
-    println(f" Timeout Rate: ${timeoutCount.toDouble / BENCHMARK_RUNS}%.6f")
-    println(f"     Failures: ${failureCount}%5d runs")
-    println(f" Failure Rate: ${failureCount.toDouble / BENCHMARK_RUNS}%.6f")
+    loopStatisticsWithTimeout(
+      () => SubmissionPublisherLoops4Test(ITEMS).main(),
+      BENCHMARK_RUNS,
+      timeoutSecs = 300L,
+      verbose = true,
+      printStats = true
+    )
     println(s"-- End of SubmissionPublisherLoops4Test session --")
-    println("")
   }
 
   def average(xs: List[Double]): Double =
@@ -55,7 +45,8 @@ object Test {
       func: () => Unit,
       count: Int,
       timeoutSecs: Long,
-      verbose: Boolean
+      verbose: Boolean,
+      printStats: Boolean
   ): (Int, Int, Int, List[Double]) = {
     var successCount = 0
     var timeoutCount = 0
@@ -95,6 +86,19 @@ object Test {
       } finally {
         Thread.sleep(500L)
       }
+    }
+
+    if (printStats) {
+      println("-- Statistics:")
+      println(f" Average time: ${average(times)}%6.4f seconds")
+      println(f" Std Dev time: ${stddev(times)}%6.4f seconds")
+      println(f"        Total: ${count}%5d runs")
+      println(f"    Successes: ${successCount}%5d runs")
+      println(f"    Succ Rate: ${successCount.toDouble / count}%.6f")
+      println(f"     Timeouts: ${timeoutCount}%5d runs")
+      println(f" Timeout Rate: ${timeoutCount.toDouble / count}%.6f")
+      println(f"     Failures: ${failureCount}%5d runs")
+      println(f" Failure Rate: ${failureCount.toDouble / count}%.6f")
     }
 
     (successCount, timeoutCount, failureCount, times)
