@@ -1,0 +1,199 @@
+[info] welcome to sbt 1.12.9 (Eclipse Adoptium Java 25.0.3)
+[info] loading settings for project scala-native-build from build.sbt...
+[info] loading project definition from /home/lqhuang/Src/scala-native/project
+Not found `ENABLE_EXPERIMENTAL_COMPILER` env var: sub-projects using Scala experimental version would not be available.
+[info] loading settings for project scala-native from build.sbt...
+[info] resolving key references (99466 settings) ...
+[info] Detected JDK version 25
+[info] set current project to scala-native (in build file:/home/lqhuang/Src/scala-native/)
+[info] Setting Scala version to 3.8.3 on 39 projects.
+[info] Excluded 74 projects, run ++ 3.8.3 -v for more details.
+[info] Reapplying settings...
+[info] Detected JDK version 25
+[info] set current project to scala-native (in build file:/home/lqhuang/Src/scala-native/)
+[info] Defining ThisBuild / nativeConfig
+[info] The new value will be used by auxlib2_12 / nativeConfig, auxlib2_13 / nativeConfig and 63 others.
+[info] 	Run `last` for details.
+[info] Reapplying settings...
+[info] Detected JDK version 25
+[info] set current project to scala-native (in build file:/home/lqhuang/Src/scala-native/)
+[info] NativeConfig(
+[info]  - baseName:                
+[info]  - clang:                   /usr/bin/clang
+[info]  - clangPP:                 /usr/bin/clang++
+[info]  - linkingOptions:          [-L/usr/local/lib]
+[info]  - compileOptions:          [-I/usr/local/include, -Qunused-arguments]
+[info]  - cOptions:                []
+[info]  - cppOptions:              []
+[info]  - targetTriple:            None
+[info]  - GC:                      immix
+[info]  - LTO:                     none
+[info]  - mode:                    release-fast
+[info]  - buildTarget              Application
+[info]  - check:                   true
+[info]  - checkFatalWarnings:      true
+[info]  - checkFeatures            true
+[info]  - dump:                    true
+[info]  - sanitizer:               none
+[info]  - linkStubs:               false
+[info]  - optimize                 true
+[info]  - incrementalCompilation:  true
+[info]  - multithreading           true
+[info]  - linktimeProperties:      []
+[info]  - embedResources:          false
+[info]  - resourceIncludePatterns: [**]
+[info]  - resourceExcludePatterns: []
+[info]  - serviceProviders:        []
+[info]  - optimizerConfig:         
+[info]     - maxInlineDepth:    32 functions
+[info]     - smallFunctionSize: 12 instructions
+[info]     - maxCallerSize:     2048 instructions
+[info]     - maxCalleeSize:     256 instructions
+[info] 
+[info]  - semanticsConfig:         SemanticsConfig(
+[info]     - finalFields: Relaxed
+[info]     - strictExternCallSemantics: false
+[info]     )
+[info]  - sourceLevelDebuggingConfig: SourceLevelDebuggingConfig[Enabled]
+[info]     - customSourceRoots:       []
+[info]     - generateFunctionSourcePositions: true
+[info]     - generateLocalVariables:  true
+[info]     )
+[info] )
+[success] Total time: 0 s, completed May 1, 2026, 12:29:48 AM
+[info] Wrote /home/lqhuang/Src/scala-native/scalalib/.3/target/scala-3.8.3/scalalib_native0.5_3-3.8.3+0.5.12-SNAPSHOT.pom
+[info] :: delivering :: org.scala-native#scalalib_native0.5_3;3.8.3+0.5.12-SNAPSHOT :: 3.8.3+0.5.12-SNAPSHOT :: integration :: Fri May 01 00:29:50 HKT 2026
+[info] 	delivering ivy file to /home/lqhuang/Src/scala-native/scalalib/.3/target/scala-3.8.3/ivy-3.8.3+0.5.12-SNAPSHOT.xml
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/poms/scalalib_native0.5_3.pom
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/jars/scalalib_native0.5_3.jar
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/srcs/scalalib_native0.5_3-sources.jar
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/docs/scalalib_native0.5_3-javadoc.jar
+[info] 	published ivy to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/ivys/ivy.xml
+[info] Build skipped: No changes detected in build configuration and class path contents since last build.
+Hello, World!
+-- Benchmark for SubmissionPublisherLoops1Test --
+-- Warming up ...
+Iteration 0001: Success, per iter time: 2.1638 seconds
+Iteration 0002: Success, per iter time: 3.2463 seconds
+Iteration 0003: Success, per iter time: 3.2237 seconds
+Iteration 0004: Success, per iter time: 3.8023 seconds
+Iteration 0005: Success, per iter time: 3.0253 seconds
+Iteration 0006: Success, per iter time: 2.9696 seconds
+Iteration 0007: Success, per iter time: 2.1674 seconds
+Iteration 0008: Success, per iter time: 2.6552 seconds
+Iteration 0009: Success, per iter time: 2.0802 seconds
+Iteration 0010: Success, per iter time: 2.1505 seconds
+-- Running benchmark ...
+Iteration 0001: Success, per iter time: 2.3433 seconds
+Iteration 0002: Success, per iter time: 2.6805 seconds
+Iteration 0003: Success, per iter time: 2.5520 seconds
+Iteration 0004: Success, per iter time: 3.0796 seconds
+Iteration 0005: Success, per iter time: 2.5968 seconds
+Iteration 0006: Success, per iter time: 2.3122 seconds
+Iteration 0007: Success, per iter time: 2.2543 seconds
+Iteration 0008: Success, per iter time: 2.8567 seconds
+Iteration 0009: Success, per iter time: 3.5773 seconds
+Iteration 0010: Success, per iter time: 2.3624 seconds
+Iteration 0011: Success, per iter time: 3.0605 seconds
+Iteration 0012: Success, per iter time: 3.0373 seconds
+Iteration 0013: Success, per iter time: 3.0321 seconds
+Iteration 0014: Success, per iter time: 2.1026 seconds
+Iteration 0015: Success, per iter time: 2.3311 seconds
+Iteration 0016: Success, per iter time: 2.9985 seconds
+Iteration 0017: Success, per iter time: 3.0512 seconds
+Iteration 0018: Success, per iter time: 3.0713 seconds
+Iteration 0019: Success, per iter time: 2.3666 seconds
+Iteration 0020: Success, per iter time: 2.0971 seconds
+Iteration 0021: Success, per iter time: 2.5372 seconds
+Iteration 0022: Success, per iter time: 3.3055 seconds
+Iteration 0023: Success, per iter time: 3.1704 seconds
+Iteration 0024: Success, per iter time: 2.4550 seconds
+Iteration 0025: Success, per iter time: 2.1412 seconds
+Iteration 0026: Success, per iter time: 2.4300 seconds
+Iteration 0027: Success, per iter time: 2.5913 seconds
+Iteration 0028: Success, per iter time: 2.1737 seconds
+Iteration 0029: Success, per iter time: 2.5625 seconds
+Iteration 0030: Success, per iter time: 2.1774 seconds
+Iteration 0031: Success, per iter time: 2.4313 seconds
+Iteration 0032: Success, per iter time: 2.9818 seconds
+Iteration 0033: Success, per iter time: 3.2378 seconds
+Iteration 0034: Success, per iter time: 2.5825 seconds
+Iteration 0035: Success, per iter time: 2.3373 seconds
+Iteration 0036: Success, per iter time: 2.2862 seconds
+Iteration 0037: Timeout
+Iteration 0038: Success, per iter time: 2.3419 seconds
+Iteration 0039: Success, per iter time: 3.1487 seconds
+Iteration 0040: Success, per iter time: 3.2249 seconds
+Iteration 0041: Success, per iter time: 2.9096 seconds
+Iteration 0042: Success, per iter time: 2.6230 seconds
+Iteration 0043: Success, per iter time: 2.7138 seconds
+Iteration 0044: Success, per iter time: 3.0351 seconds
+Iteration 0045: Success, per iter time: 2.6533 seconds
+Iteration 0046: Success, per iter time: 2.7985 seconds
+Iteration 0047: Success, per iter time: 3.2869 seconds
+Iteration 0048: Success, per iter time: 2.4220 seconds
+Iteration 0049: Success, per iter time: 3.1095 seconds
+Iteration 0050: Timeout
+Iteration 0051: Success, per iter time: 2.9098 seconds
+Iteration 0052: Success, per iter time: 2.9573 seconds
+Iteration 0053: Success, per iter time: 2.6415 seconds
+Iteration 0054: Success, per iter time: 2.7448 seconds
+Iteration 0055: Success, per iter time: 2.5149 seconds
+Iteration 0056: Success, per iter time: 2.6869 seconds
+Iteration 0057: Success, per iter time: 2.3364 seconds
+Iteration 0058: Timeout
+Iteration 0059: Success, per iter time: 2.7600 seconds
+Iteration 0060: Success, per iter time: 2.8615 seconds
+Iteration 0061: Success, per iter time: 2.6287 seconds
+Iteration 0062: Success, per iter time: 2.5804 seconds
+Iteration 0063: Success, per iter time: 2.6789 seconds
+Iteration 0064: Success, per iter time: 2.5058 seconds
+Iteration 0065: Success, per iter time: 2.8189 seconds
+Iteration 0066: Timeout
+Iteration 0067: Timeout
+Iteration 0068: Success, per iter time: 3.7479 seconds
+Iteration 0069: Success, per iter time: 5.1968 seconds
+Iteration 0070: Success, per iter time: 3.6388 seconds
+Iteration 0071: Success, per iter time: 4.8295 seconds
+Iteration 0072: Timeout
+Iteration 0073: Timeout
+Iteration 0074: Timeout
+Iteration 0075: Timeout
+Iteration 0076: Timeout
+Iteration 0077: Timeout
+Iteration 0078: Timeout
+Iteration 0079: Timeout
+Iteration 0080: Timeout
+Iteration 0081: Timeout
+Iteration 0082: Timeout
+Iteration 0083: Timeout
+Iteration 0084: Timeout
+Iteration 0085: Timeout
+Iteration 0086: Timeout
+Iteration 0087: Timeout
+Iteration 0088: Timeout
+Iteration 0089: Timeout
+Iteration 0090: Timeout
+Iteration 0091: Timeout
+Iteration 0092: Timeout
+Iteration 0093: Timeout
+Iteration 0094: Timeout
+Iteration 0095: Timeout
+Iteration 0096: Timeout
+Iteration 0097: Timeout
+Iteration 0098: Timeout
+Iteration 0099: Timeout
+Iteration 0100: Timeout
+-- Statistics:
+ Average time: 2.7950 seconds
+ Std Dev time: 0.5482 seconds
+        Total:   100 runs
+    Successes:    66 runs
+    Succ Rate: 0.660000
+     Timeouts:    34 runs
+ Timeout Rate: 0.340000
+     Failures:     0 runs
+ Failure Rate: 0.000000
+-- End of SubmissionPublisherLoops1Test session --
+
+[success] Total time: 623 s (0:10:23.0), completed May 1, 2026, 12:40:11 AM

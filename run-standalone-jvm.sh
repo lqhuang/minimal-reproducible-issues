@@ -27,11 +27,10 @@ for test_script in "${TESTS[@]}"; do
 
   for i in {0..49}; do
     scala run --platform jvm --scala-version 3.8.3 \
-          "${CURR_REPO}/standalone/${test_script}.scala" 2>&1 \
+      "${CURR_REPO}/standalone/${test_script}.scala" 2>&1 \
       | tee "${log_dir}/$(printf %02d "${i}").log"
   done
 
   echo "Finished ${test_script} for libc-stdatomic"
 done
 popd
-
