@@ -98,7 +98,7 @@ def main():
                 if num_runs > 10:
                     fig_path = log_path / f"{suite}-{v}-times.svg"
                     fig, ax = plt.subplots(figsize=(10, 5))
-                    x = np.arange(num_runs)
+                    x = np.arange(num_runs) + 1
                     ax.errorbar(
                         x,
                         avg_arr,
@@ -108,11 +108,11 @@ def main():
                         markersize=5,
                     )
                     ax.set_title(
-                        f"{machine} - {suite} - {v} - Avg Time with Std Dev (lower is better)"
+                        f"{machine} - {suite} - {v} - Avg Time with Std Dev per run (lower is better)"
                     )
                     ax.set_xlabel("Run Index")
                     ax.set_xticks(x[::2])
-                    ax.set_xlim(0, num_runs - 1)
+                    ax.set_xlim(1, num_runs + 1)
                     ax.set_ylabel("Time (seconds)")
                     ax.legend(edgecolor="black")
                     fig.tight_layout()
@@ -121,7 +121,7 @@ def main():
 
                     fig_path = log_path / f"{suite}-{v}-succ.svg"
                     fig, ax = plt.subplots(figsize=(10, 5))
-                    x = np.arange(num_runs)
+                    x = np.arange(num_runs) + 1
                     ax.bar(x, succ_arr, label="Successes")
                     ax.bar(x, timeout_arr, bottom=succ_arr, label="Timeouts")
                     ax.bar(x, fail_arr, bottom=succ_arr + timeout_arr, label="Failures")
@@ -130,7 +130,7 @@ def main():
                     )
                     ax.set_xlabel("Run Index")
                     ax.set_xticks(x[::2])
-                    ax.set_xlim(0, num_runs - 1)
+                    ax.set_xlim(0, num_runs + 1)
                     ax.set_ylabel("Count")
                     ax.legend(edgecolor="black")
                     fig.tight_layout()
@@ -150,21 +150,26 @@ def main():
             fig, ax = plt.subplots(1, 1, figsize=(12, 6))
 
             for v in variants:
-                avg_stack = data[suite][v]["avg_arr"]
-                std_stack = data[suite][v]["std_arr"]
+                avg_arr = data[suite][v]["avg_arr"]
+                std_arr = data[suite][v]["std_arr"]
 
-                x = np.arange(len(avg_stack))
+                x = np.arange(len(avg_arr)) + 1
                 ax.errorbar(
-                    x, avg_stack, yerr=std_stack, label=v, marker="o", markersize=5
+                    x,
+                    avg_arr,
+                    yerr=std_arr,
+                    label=f"{v}, final avg: {np.nanmean(avg_arr):.4f} secs",
+                    marker="o",
+                    markersize=5,
                 )
 
             ax.set_title(
-                f"{machine} - {suite} - Avg Time with Std Dev (lower is better)"
+                f"{machine} - {suite} - Avg Time with Std Dev per run (lower is better)"
             )
             ax.set_xlabel("Run Index")
-            ax.set_xticks(np.arange(15))
+            ax.set_xticks(np.arange(15) + 1)
             ax.set_ylabel("Time (seconds)")
-            ax.set_xlim(0, 14)
+            ax.set_xlim(1, 15)
             ax.legend(edgecolor="black")
             fig.tight_layout()
             fig.savefig(fig_path, transparent=False, dpi=300)
