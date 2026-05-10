@@ -1,5 +1,7 @@
 ## Setup
 
+### Hardware and System Information
+
 ```console
 $ uname -a
 Linux dev-server 6.8.0-107-generic #107-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 13 19:51:50 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
@@ -51,11 +53,10 @@ GPU 1: Intel UHD Graphics 630 @ 1.20 GHz [Integrated]
 Memory: 35.37 GiB / 60.47 GiB (58%)
 Swap: 355.75 MiB / 16.00 GiB (2%)
 Disk (/): 354.54 GiB / 899.56 GiB (39%) - xfs
-Local IP (eno1): ***.***.***.***/24
 Locale: en_US.UTF-8
 ```
 
-## Java version:
+## Software Versions
 
 ```console
 $ java -version
@@ -64,8 +65,6 @@ OpenJDK Runtime Environment Temurin-25.0.1+8 (build 25.0.1+8-LTS)
 OpenJDK 64-Bit Server VM Temurin-25.0.1+8 (build 25.0.1+8-LTS, mixed mode, sharing)
 ```
 
-##
-
 ```
 reload; \
 clean; \
@@ -73,4 +72,12 @@ set nativeConfig ~=  { _.withMode(scala.scalanative.build.Mode.releaseFast).with
 set ThisBuild/nativeConfig ~=  { _.withMode(scala.scalanative.build.Mode.releaseFast).withOptimize(true) }; \
 show sandbox3/nativeConfig; \
 sandbox3/run
+```
+
+```sh-session
+$ clang++ --version
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
 ```

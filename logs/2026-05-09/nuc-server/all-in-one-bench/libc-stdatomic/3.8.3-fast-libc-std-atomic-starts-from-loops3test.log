@@ -1,0 +1,176 @@
+[info] welcome to sbt 1.12.9 (Eclipse Adoptium Java 25.0.3)
+[info] loading settings for project scala-native-build from build.sbt...
+[info] loading project definition from /home/lqhuang/Src/scala-native/project
+Not found `ENABLE_EXPERIMENTAL_COMPILER` env var: sub-projects using Scala experimental version would not be available.
+[info] loading settings for project scala-native from build.sbt...
+[info] resolving key references (99466 settings) ...
+[info] Detected JDK version 25
+[info] set current project to scala-native (in build file:/home/lqhuang/Src/scala-native/)
+[success] Total time: 1 s, completed Apr 27, 2026, 9:34:20 PM
+[info] Setting Scala version to 3.8.3 on 39 projects.
+[info] Excluded 74 projects, run ++ 3.8.3 -v for more details.
+[info] Reapplying settings...
+[info] Detected JDK version 25
+[info] set current project to scala-native (in build file:/home/lqhuang/Src/scala-native/)
+[info] Defining ThisBuild / nativeConfig
+[info] The new value will be used by auxlib2_12 / nativeConfig, auxlib2_13 / nativeConfig and 63 others.
+[info] 	Run `last` for details.
+[info] Reapplying settings...
+[info] Detected JDK version 25
+[info] set current project to scala-native (in build file:/home/lqhuang/Src/scala-native/)
+[info] NativeConfig(
+[info]  - baseName:                
+[info]  - clang:                   /usr/bin/clang
+[info]  - clangPP:                 /usr/bin/clang++
+[info]  - linkingOptions:          [-L/usr/local/lib]
+[info]  - compileOptions:          [-I/usr/local/include, -Qunused-arguments]
+[info]  - cOptions:                []
+[info]  - cppOptions:              []
+[info]  - targetTriple:            None
+[info]  - GC:                      immix
+[info]  - LTO:                     none
+[info]  - mode:                    release-fast
+[info]  - buildTarget              Application
+[info]  - check:                   true
+[info]  - checkFatalWarnings:      true
+[info]  - checkFeatures            true
+[info]  - dump:                    true
+[info]  - sanitizer:               none
+[info]  - linkStubs:               false
+[info]  - optimize                 true
+[info]  - incrementalCompilation:  true
+[info]  - multithreading           true
+[info]  - linktimeProperties:      []
+[info]  - embedResources:          false
+[info]  - resourceIncludePatterns: [**]
+[info]  - resourceExcludePatterns: []
+[info]  - serviceProviders:        []
+[info]  - optimizerConfig:         
+[info]     - maxInlineDepth:    32 functions
+[info]     - smallFunctionSize: 12 instructions
+[info]     - maxCallerSize:     2048 instructions
+[info]     - maxCalleeSize:     256 instructions
+[info] 
+[info]  - semanticsConfig:         SemanticsConfig(
+[info]     - finalFields: Relaxed
+[info]     - strictExternCallSemantics: false
+[info]     )
+[info]  - sourceLevelDebuggingConfig: SourceLevelDebuggingConfig[Enabled]
+[info]     - customSourceRoots:       []
+[info]     - generateFunctionSourcePositions: true
+[info]     - generateLocalVariables:  true
+[info]     )
+[info] )
+[success] Total time: 0 s, completed Apr 27, 2026, 9:34:28 PM
+[info] Wrote /home/lqhuang/Src/scala-native/scalalib/.3/target/scala-3.8.3/scalalib_native0.5_3-3.8.3+0.5.12-SNAPSHOT.pom
+[info] compiling 65 Scala sources to /home/lqhuang/Src/scala-native/nscplugin/.3/target/scala-3.8.3/classes ...
+[info] Unpacking Scala library sources to /home/lqhuang/Src/scala-native/scalalib/target/scalaSources/3.8.3...
+[info] compiling 2 Java sources to /home/lqhuang/Src/scala-native/javalib-intf/target/classes ...
+[info] done compiling
+[info] done compiling
+[info] compiling 100 Scala sources and 1 Java source to /home/lqhuang/Src/scala-native/nativelib/.3/target/scala-3.8.3/classes ...
+[info] done compiling
+[info] compiling 21 Scala sources to /home/lqhuang/Src/scala-native/clib/.3/target/scala-3.8.3/classes ...
+[info] done compiling
+[info] compiling 15 Scala sources to /home/lqhuang/Src/scala-native/auxlib/.3/target/scala-3.8.3/classes ...
+[info] done compiling
+[info] compiling 649 Scala sources to /home/lqhuang/Src/scala-native/scalalib/.3/target/scala-3.8.3/classes ...
+[info] done compiling
+[info] compiling 65 Scala sources to /home/lqhuang/Src/scala-native/nscplugin/.2.13/target/scala-2.13/classes ...
+[info] Unpacking Scala library sources to /home/lqhuang/Src/scala-native/scalalib/target/scalaSources/2.13.18...
+[info] done compiling
+[info] compiling 97 Scala sources and 1 Java source to /home/lqhuang/Src/scala-native/nativelib/.2.13/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 21 Scala sources to /home/lqhuang/Src/scala-native/clib/.2.13/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 14 Scala sources to /home/lqhuang/Src/scala-native/auxlib/.2.13/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 541 Scala sources to /home/lqhuang/Src/scala-native/scalalib/.2.13/target/scala-2.13/classes ...
+[info] done compiling
+[info] :: delivering :: org.scala-native#scalalib_native0.5_3;3.8.3+0.5.12-SNAPSHOT :: 3.8.3+0.5.12-SNAPSHOT :: integration :: Mon Apr 27 21:36:21 HKT 2026
+[info] 	delivering ivy file to /home/lqhuang/Src/scala-native/scalalib/.3/target/scala-3.8.3/ivy-3.8.3+0.5.12-SNAPSHOT.xml
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/poms/scalalib_native0.5_3.pom
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/jars/scalalib_native0.5_3.jar
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/srcs/scalalib_native0.5_3-sources.jar
+[info] 	published scalalib_native0.5_3 to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/docs/scalalib_native0.5_3-javadoc.jar
+[info] 	published ivy to /home/lqhuang/.ivy2/local/org.scala-native/scalalib_native0.5_3/3.8.3+0.5.12-SNAPSHOT/ivys/ivy.xml
+[info] compiling 67 Scala sources to /home/lqhuang/Src/scala-native/posixlib/.3/target/scala-3.8.3/classes ...
+[info] compiling 34 Scala sources to /home/lqhuang/Src/scala-native/windowslib/.3/target/scala-3.8.3/classes ...
+[info] done compiling
+[info] done compiling
+[info] compiling 595 Scala sources to /home/lqhuang/Src/scala-native/javalib/.3/target/scala-3.8.3/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /home/lqhuang/Src/scala-native/sandbox/.3/target/scala-3.8.3/classes ...
+[info] done compiling
+[info] Linking (multithreadingEnabled=true) (1160 ms)
+[info] Dumping intermediate code (linked) (666 ms)
+[info] Discovered 1249 classes and 8406 methods after classloading
+[info] Checking intermediate code (full) (222 ms)
+[info] Dumping intermediate code (optimized) (354 ms)
+[info] Discovered 1025 classes and 4192 methods after optimization
+[info] Optimizing (release-fast mode) (5970 ms)
+[info] Checking intermediate code (full) (96 ms)
+[info] Dumping intermediate code (lowered) (538 ms)
+[info] Produced 61 LLVM IR files
+[info] Generating intermediate code (with debug metadata) (4502 ms)
+[info] Compiling to native code (4688 ms)
+[info] Linking with [pthread, dl, m]
+[info] Linking native code (immix gc, none lto) (136 ms)
+[info] Postprocessing (0 ms)
+[info] Total (15167 ms)
+Hello, World!
+
+Linktime Info collection:
+  debugMode: false
+  releaseMode: true
+  runtimeVersion: 0.5.12-SNAPSHOT
+  garbageCollector: immix
+  isWeakReferenceSupported: true
+  isMultithreadingEnabled: true
+  isContinuationsSupported: true
+ForkJoinPool.commonPool() info:
+  POOL_PARALLELISM: 11
+  POOL_ASYNC_MODE: false
+  POOL_SIZE: 0
+
+
+-- Benchmark for SubmissionPublisherLoops3Test --
+-- Warming up ...
+Iteration 1: Timeout
+Iteration 2: Timeout
+Iteration 3: Timeout
+Iteration 4: Timeout
+Iteration 5: Timeout
+Iteration 6: Timeout
+Iteration 7: Timeout
+Iteration 8: Timeout
+Iteration 9: Timeout
+Iteration 10: Timeout
+Loop completed: 0 successes (0.0000), 10 timeouts (1.0000), 0 failures, total 10 iterations.
+-- Running benchmark ...
+Loop completed: 3 successes (0.0000), 97 timeouts (0.0000), 0 failures, total 100 iterations.
+-- Statistics:
+ Average time:   9.614 seconds
+ Std Dev time:   0.155 seconds
+-- End of SubmissionPublisherLoops3Test session --
+
+-- Benchmark for SubmissionPublisherLoops4Test --
+-- Warming up ...
+Iteration 1: Timeout
+Iteration 2: Timeout
+Iteration 3: Timeout
+Iteration 4: Timeout
+Iteration 5: Timeout
+Iteration 6: Timeout
+Iteration 7: Timeout
+Iteration 8: Timeout
+Iteration 9: Timeout
+Iteration 10: Timeout
+Loop completed: 0 successes (0.0000), 10 timeouts (1.0000), 0 failures, total 10 iterations.
+-- Running benchmark ...
+Loop completed: 0 successes (0.0000), 20 timeouts (1.0000), 0 failures, total 20 iterations.
+-- Statistics:
+ Average time:     NaN seconds
+ Std Dev time:  -0.000 seconds
+-- End of SubmissionPublisherLoops4Test session --
+[success] Total time: 10367 s (02:52:47.0), completed Apr 28, 2026, 12:27:14 AM

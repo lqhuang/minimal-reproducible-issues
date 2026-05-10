@@ -1,0 +1,136 @@
+[info] NativeConfig(
+[info]  - baseName:
+[info]  - clang:                   /opt/homebrew/opt/ccache/libexec/clang
+[info]  - clangPP:                 /opt/homebrew/opt/ccache/libexec/clang++
+[info]  - linkingOptions:          [-L/opt/homebrew/lib]
+[info]  - compileOptions:          [-I/opt/homebrew/include, -Qunused-arguments]
+[info]  - cOptions:                []
+[info]  - cppOptions:              []
+[info]  - targetTriple:            None
+[info]  - GC:                      immix
+[info]  - LTO:                     none
+[info]  - mode:                    release-fast
+[info]  - buildTarget              Application
+[info]  - check:                   true
+[info]  - checkFatalWarnings:      true
+[info]  - checkFeatures            true
+[info]  - dump:                    true
+[info]  - sanitizer:               none
+[info]  - linkStubs:               false
+[info]  - optimize                 true
+[info]  - incrementalCompilation:  true
+[info]  - multithreading           true
+[info]  - linktimeProperties:      []
+[info]  - embedResources:          false
+[info]  - resourceIncludePatterns: [**]
+[info]  - resourceExcludePatterns: []
+[info]  - serviceProviders:        []
+[info]  - optimizerConfig:
+[info]     - maxInlineDepth:    32 functions
+[info]     - smallFunctionSize: 12 instructions
+[info]     - maxCallerSize:     2048 instructions
+[info]     - maxCalleeSize:     256 instructions
+[info]
+[info]  - semanticsConfig:         SemanticsConfig(
+[info]     - finalFields: Relaxed
+[info]     - strictExternCallSemantics: false
+[info]     )
+[info]  - sourceLevelDebuggingConfig: SourceLevelDebuggingConfig[Enabled]
+[info]     - customSourceRoots:       []
+[info]     - generateFunctionSourcePositions: true
+[info]     - generateLocalVariables:  true
+[info]     )
+[info] )
+
+Hello, World!
+
+Linktime Info collection:
+  debugMode: false
+  releaseMode: true
+  runtimeVersion: 0.5.11-SNAPSHOT
+  garbageCollector: immix
+  isWeakReferenceSupported: true
+  isMultithreadingEnabled: true
+  isContinuationsSupported: true
+ForkJoinPool.commonPool() info:
+  POOL_PARALLELISM: 9
+  POOL_ASYNC_MODE: false
+  POOL_SIZE: 0
+
+
+-- Benchmark for SubmissionPublisherLoops2Test --
+-- Warming up ...
+Run warmup step 1 ...
+[20:03:28.465] [sandbox:58402] [ScalaNative GC|Warning] Waiting for 1 thread(s) to reach safepoint (10.0s elapsed)
+[20:03:28.466] [sandbox:58402] [ScalaNative GC|Warning] 1 thread(s) not reaching safepoint:
+[20:03:28.466] [sandbox:58402] [ScalaNative GC|Warning]   Thread id=6136688640, stackBottom=0x16dc67000, state=Managed, alive=yes
+[20:03:28.466] [sandbox:58402] [ScalaNative GC|Warning] Possible causes:
+  - Thread blocked in native code without @blocking annotation
+  - Thread crashed without cleanup
+  - Infinite loop in native code
+  - Deadlock with resource held by waiting thread
+[20:03:38.465] [sandbox:58402] [ScalaNative GC|Warning] Waiting for 1 thread(s) to reach safepoint (20.0s elapsed)
+[20:03:38.465] [sandbox:58402] [ScalaNative GC|Warning] 1 thread(s) not reaching safepoint:
+[20:03:38.465] [sandbox:58402] [ScalaNative GC|Warning]   Thread id=6136688640, stackBottom=0x16dc67000, state=Managed, alive=yes
+[20:03:38.465] [sandbox:58402] [ScalaNative GC|Warning] Possible causes:
+  - Thread blocked in native code without @blocking annotation
+  - Thread crashed without cleanup
+  - Infinite loop in native code
+  - Deadlock with resource held by waiting thread
+[20:03:48.465] [sandbox:58402] [ScalaNative GC|Warning] Waiting for 1 thread(s) to reach safepoint (30.0s elapsed)
+[20:03:48.465] [sandbox:58402] [ScalaNative GC|Warning] 1 thread(s) not reaching safepoint:
+[20:03:48.465] [sandbox:58402] [ScalaNative GC|Warning]   Thread id=6136688640, stackBottom=0x16dc67000, state=Managed, alive=yes
+[20:03:48.465] [sandbox:58402] [ScalaNative GC|Warning] Possible causes:
+  - Thread blocked in native code without @blocking annotation
+  - Thread crashed without cleanup
+  - Infinite loop in native code
+  - Deadlock with resource held by waiting thread
+[20:03:58.465] [sandbox:58402] [ScalaNative GC|Warning] Waiting for 1 thread(s) to reach safepoint (40.0s elapsed)
+[20:03:58.465] [sandbox:58402] [ScalaNative GC|Warning] 1 thread(s) not reaching safepoint:
+[20:03:58.465] [sandbox:58402] [ScalaNative GC|Warning]   Thread id=6136688640, stackBottom=0x16dc67000, state=Managed, alive=yes
+[20:03:58.465] [sandbox:58402] [ScalaNative GC|Warning] Possible causes:
+  - Thread blocked in native code without @blocking annotation
+  - Thread crashed without cleanup
+  - Infinite loop in native code
+  - Deadlock with resource held by waiting thread
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning] Waiting for 1 thread(s) to reach safepoint (50.0s elapsed)
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning] 1 thread(s) not reaching safepoint:
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning]   Thread id=6136688640, stackBottom=0x16dc67000, state=Managed, alive=yes
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning] Possible causes:
+  - Thread blocked in native code without @blocking annotation
+  - Thread crashed without cleanup
+  - Infinite loop in native code
+  - Deadlock with resource held by waiting thread
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning] Waiting for 1 thread(s) to reach safepoint (50.0s elapsed)
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning] 1 thread(s) not reaching safepoint:
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning]   Thread id=6136688640, stackBottom=0x16dc67000, state=Managed, alive=yes
+[20:04:08.465] [sandbox:58402] [ScalaNative GC|Warning] Possible causes:
+  - Thread blocked in native code without @blocking annotation
+  - Thread crashed without cleanup
+  - Infinite loop in native code
+  - Deadlock with resource held by waiting thread
+[20:04:18.465] [sandbox:58402] [ScalaNative GC|Warning] Waiting for 1 thread(s) to reach safepoint (60.0s elapsed)
+[20:04:18.465] [sandbox:58402] [ScalaNative GC|Warning] 1 thread(s) not reaching safepoint:
+[20:04:18.465] [sandbox:58402] [ScalaNative GC|Warning]   Thread id=6136688640, stackBottom=0x16dc67000, state=Managed, alive=yes
+[20:04:18.465] [sandbox:58402] [ScalaNative GC|Warning] Possible causes:
+  - Thread blocked in native code without @blocking annotation
+  - Thread crashed without cleanup
+  - Infinite loop in native code
+  - Deadlock with resource held by waiting thread
+[20:04:18.465] [sandbox:58402] [ScalaNative GC|Error] FATAL: Timeout after 60.0s waiting for 1 thread(s)
+Threads did not reach safepoint which blocks the GC.
+This is likely caused by:
+  - Native/extern call missing @blocking annotation
+  - Thread stuck in infinite loop in native code
+Set SCALANATIVE_GC_SYNC_TIMEOUT_MS=0 to disable timeout
+Current timeout: 60000 ms
+[error] java.lang.RuntimeException: Nonzero exit code: 134
+[error]         at scala.sys.package$.error(package.scala:30)
+[error]         at scala.scalanative.sbtplugin.ScalaNativePluginInternal$.$anonfun$scalaNativeConfigSettings$19(ScalaNativePluginInternal.scala:300)
+[error]         at scala.Option.foreach(Option.scala:407)
+[error]         at scala.scalanative.sbtplugin.ScalaNativePluginInternal$.$anonfun$scalaNativeConfigSettings$16(ScalaNativePluginInternal.scala:300)
+[error]         at scala.scalanative.sbtplugin.ScalaNativePluginInternal$.$anonfun$scalaNativeConfigSettings$16$adapted(ScalaNativePluginInternal.scala:252)
+[error]         at scala.Function1.$anonfun$compose$1(Function1.scala:49)
+[error] stack trace is suppressed; run last sandbox3 / Compile / run for the full output
+[error] (sandbox3 / Compile / run) Nonzero exit code: 134
+[error] Total time: 154 s (0:02:34.0), completed Apr 24, 2026, 8:04:18 PM
