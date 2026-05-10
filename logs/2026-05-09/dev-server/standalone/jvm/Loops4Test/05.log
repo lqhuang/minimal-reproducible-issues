@@ -1,0 +1,27 @@
+Hello, World!
+-- Benchmark for SubmissionPublisherLoops4Test --
+-- Warming up ...
+Iteration 0001: Success, per iter time: 55.7749 seconds
+Iteration 0002: Success, per iter time: 59.0737 seconds
+Iteration 0003: Success, per iter time: 58.7856 seconds
+Iteration 0004: Success, per iter time: 58.3900 seconds
+Iteration 0005: Success, per iter time: 58.3676 seconds
+Iteration 0006: Success, per iter time: 58.3688 seconds
+Iteration 0007: Success, per iter time: 58.5964 seconds
+Iteration 0008: Success, per iter time: 58.1444 seconds
+Iteration 0009: Success, per iter time: 58.1805 seconds
+Iteration 0010: Success, per iter time: 58.3289 seconds
+-- Running benchmark ...
+Iteration 0001: Success, per iter time: 58.7358 seconds
+Iteration 0002: Success, per iter time: 58.4201 seconds
+Iteration 0003: Success, per iter time: 58.3990 seconds
+Iteration 0004: Success, per iter time: 59.0418 seconds
+Iteration 0005: Success, per iter time: 58.2073 seconds
+Iteration 0006: Success, per iter time: 58.7835 seconds
+Iteration 0007: Success, per iter time: 58.3256 seconds
+Iteration 0008: Success, per iter time: 58.5034 seconds
+Iteration 0009: Success, per iter time: 58.6129 seconds
+Iteration 0010: Success, per iter time: 58.2638 seconds
+Iteration 0011: Success, per iter time: 58.2270 seconds
+Iteration 0012: Success, per iter time: 58.0973 seconds
+Iteration 0013: Success, per iter time: 58.4999 seconds

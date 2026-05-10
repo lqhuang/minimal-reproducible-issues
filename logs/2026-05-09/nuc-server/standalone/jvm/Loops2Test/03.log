@@ -1,0 +1,125 @@
+Hello, World!
+-- Benchmark for SubmissionPublisherLoops2Test --
+-- Warming up ...
+Iteration 0001: Success, per iter time: 2.2247 seconds
+Iteration 0002: Success, per iter time: 1.9773 seconds
+Iteration 0003: Success, per iter time: 2.3981 seconds
+Iteration 0004: Success, per iter time: 2.7544 seconds
+Iteration 0005: Success, per iter time: 2.8420 seconds
+Iteration 0006: Success, per iter time: 3.0915 seconds
+Iteration 0007: Success, per iter time: 2.1152 seconds
+Iteration 0008: Success, per iter time: 3.7058 seconds
+Iteration 0009: Success, per iter time: 2.5053 seconds
+Iteration 0010: Success, per iter time: 3.0044 seconds
+-- Running benchmark ...
+Iteration 0001: Success, per iter time: 2.6650 seconds
+Iteration 0002: Success, per iter time: 2.9800 seconds
+Iteration 0003: Success, per iter time: 2.8928 seconds
+Iteration 0004: Success, per iter time: 3.5631 seconds
+Iteration 0005: Success, per iter time: 6.4193 seconds
+Iteration 0006: Success, per iter time: 5.0182 seconds
+Iteration 0007: Success, per iter time: 3.4634 seconds
+Iteration 0008: Success, per iter time: 4.4327 seconds
+Iteration 0009: Success, per iter time: 3.1730 seconds
+Iteration 0010: Success, per iter time: 6.3636 seconds
+Iteration 0011: Success, per iter time: 3.1710 seconds
+Iteration 0012: Success, per iter time: 4.3683 seconds
+Iteration 0013: Success, per iter time: 3.6788 seconds
+Iteration 0014: Success, per iter time: 4.4396 seconds
+Iteration 0015: Timeout
+Iteration 0016: Success, per iter time: 5.5918 seconds
+Iteration 0017: Success, per iter time: 2.9277 seconds
+Iteration 0018: Success, per iter time: 3.5705 seconds
+Iteration 0019: Timeout
+Iteration 0020: Success, per iter time: 6.4963 seconds
+Iteration 0021: Success, per iter time: 5.8251 seconds
+Iteration 0022: Success, per iter time: 5.4804 seconds
+Iteration 0023: Success, per iter time: 6.4798 seconds
+Iteration 0024: Success, per iter time: 5.2114 seconds
+Iteration 0025: Success, per iter time: 5.2229 seconds
+Iteration 0026: Success, per iter time: 5.4315 seconds
+Iteration 0027: Success, per iter time: 6.1191 seconds
+Iteration 0028: Success, per iter time: 8.2886 seconds
+Iteration 0029: Timeout
+Iteration 0030: Success, per iter time: 4.6632 seconds
+Iteration 0031: Success, per iter time: 5.1960 seconds
+Iteration 0032: Success, per iter time: 3.7926 seconds
+Iteration 0033: Timeout
+Iteration 0034: Success, per iter time: 2.3601 seconds
+Iteration 0035: Success, per iter time: 7.9245 seconds
+Iteration 0036: Success, per iter time: 2.3680 seconds
+Iteration 0037: Success, per iter time: 3.5254 seconds
+Iteration 0038: Success, per iter time: 7.0176 seconds
+Iteration 0039: Success, per iter time: 3.0659 seconds
+Iteration 0040: Success, per iter time: 6.8538 seconds
+Iteration 0041: Success, per iter time: 2.8954 seconds
+Iteration 0042: Success, per iter time: 3.4719 seconds
+Iteration 0043: Success, per iter time: 8.5166 seconds
+Iteration 0044: Success, per iter time: 2.9805 seconds
+Iteration 0045: Success, per iter time: 7.8246 seconds
+Iteration 0046: Timeout
+Iteration 0047: Timeout
+Iteration 0048: Success, per iter time: 3.6747 seconds
+Iteration 0049: Timeout
+Iteration 0050: Success, per iter time: 4.5164 seconds
+Iteration 0051: Timeout
+Iteration 0052: Success, per iter time: 4.7157 seconds
+Iteration 0053: Success, per iter time: 3.5000 seconds
+Iteration 0054: Success, per iter time: 4.8138 seconds
+Iteration 0055: Success, per iter time: 3.7107 seconds
+Iteration 0056: Timeout
+Iteration 0057: Success, per iter time: 3.5257 seconds
+Iteration 0058: Success, per iter time: 9.1701 seconds
+Iteration 0059: Success, per iter time: 3.3384 seconds
+Iteration 0060: Success, per iter time: 4.8885 seconds
+Iteration 0061: Success, per iter time: 3.6474 seconds
+Iteration 0062: Success, per iter time: 2.9026 seconds
+Iteration 0063: Success, per iter time: 5.1172 seconds
+Iteration 0064: Success, per iter time: 4.5129 seconds
+Iteration 0065: Success, per iter time: 6.5461 seconds
+Iteration 0066: Success, per iter time: 3.4046 seconds
+Iteration 0067: Success, per iter time: 2.6259 seconds
+Iteration 0068: Timeout
+Iteration 0069: Success, per iter time: 4.6408 seconds
+Iteration 0070: Success, per iter time: 3.0311 seconds
+Iteration 0071: Success, per iter time: 9.7915 seconds
+Iteration 0072: Success, per iter time: 6.9866 seconds
+Iteration 0073: Success, per iter time: 7.3659 seconds
+Iteration 0074: Success, per iter time: 7.7742 seconds
+Iteration 0075: Success, per iter time: 3.5282 seconds
+Iteration 0076: Timeout
+Iteration 0077: Success, per iter time: 3.3487 seconds
+Iteration 0078: Success, per iter time: 4.6356 seconds
+Iteration 0079: Success, per iter time: 3.8344 seconds
+Iteration 0080: Success, per iter time: 7.3721 seconds
+Iteration 0081: Success, per iter time: 6.4795 seconds
+Iteration 0082: Success, per iter time: 8.1728 seconds
+Iteration 0083: Success, per iter time: 6.9161 seconds
+Iteration 0084: Success, per iter time: 4.9097 seconds
+Iteration 0085: Success, per iter time: 7.6612 seconds
+Iteration 0086: Timeout
+Iteration 0087: Success, per iter time: 7.1132 seconds
+Iteration 0088: Success, per iter time: 4.8803 seconds
+Iteration 0089: Success, per iter time: 5.0219 seconds
+Iteration 0090: Success, per iter time: 5.2640 seconds
+Iteration 0091: Success, per iter time: 4.9636 seconds
+Iteration 0092: Success, per iter time: 8.4965 seconds
+Iteration 0093: Success, per iter time: 7.5781 seconds
+Iteration 0094: Timeout
+Iteration 0095: Success, per iter time: 7.4233 seconds
+Iteration 0096: Success, per iter time: 6.5566 seconds
+Iteration 0097: Timeout
+Iteration 0098: Success, per iter time: 3.7483 seconds
+Iteration 0099: Success, per iter time: 3.9466 seconds
+Iteration 0100: Success, per iter time: 3.9815 seconds
+-- Statistics:
+ Average time: 5.0670 seconds
+ Std Dev time: 1.8294 seconds
+        Total:   100 runs
+    Successes:    86 runs
+    Succ Rate: 0.860000
+     Timeouts:    14 runs
+ Timeout Rate: 0.140000
+     Failures:     0 runs
+ Failure Rate: 0.000000
+-- End of SubmissionPublisherLoops2Test session --

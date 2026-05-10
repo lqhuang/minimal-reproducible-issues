@@ -1,0 +1,125 @@
+Hello, World!
+-- Benchmark for SubmissionPublisherLoops1Test --
+-- Warming up ...
+Iteration 0001: Success, per iter time: 2.5245 seconds
+Iteration 0002: Success, per iter time: 2.4420 seconds
+Iteration 0003: Success, per iter time: 2.5031 seconds
+Iteration 0004: Success, per iter time: 2.3448 seconds
+Iteration 0005: Success, per iter time: 2.3443 seconds
+Iteration 0006: Success, per iter time: 2.5951 seconds
+Iteration 0007: Success, per iter time: 2.2714 seconds
+Iteration 0008: Success, per iter time: 2.3023 seconds
+Iteration 0009: Success, per iter time: 2.7520 seconds
+Iteration 0010: Success, per iter time: 2.6872 seconds
+-- Running benchmark ...
+Iteration 0001: Success, per iter time: 9.9796 seconds
+Iteration 0002: Timeout
+Iteration 0003: Success, per iter time: 3.4536 seconds
+Iteration 0004: Success, per iter time: 4.9343 seconds
+Iteration 0005: Success, per iter time: 3.3434 seconds
+Iteration 0006: Success, per iter time: 3.7285 seconds
+Iteration 0007: Success, per iter time: 4.1117 seconds
+Iteration 0008: Success, per iter time: 3.2496 seconds
+Iteration 0009: Success, per iter time: 4.3758 seconds
+Iteration 0010: Success, per iter time: 5.5264 seconds
+Iteration 0011: Success, per iter time: 3.8824 seconds
+Iteration 0012: Success, per iter time: 7.1938 seconds
+Iteration 0013: Success, per iter time: 5.7547 seconds
+Iteration 0014: Success, per iter time: 5.6782 seconds
+Iteration 0015: Success, per iter time: 4.7565 seconds
+Iteration 0016: Success, per iter time: 5.2951 seconds
+Iteration 0017: Success, per iter time: 4.4900 seconds
+Iteration 0018: Success, per iter time: 6.4571 seconds
+Iteration 0019: Success, per iter time: 4.4908 seconds
+Iteration 0020: Success, per iter time: 4.2360 seconds
+Iteration 0021: Success, per iter time: 4.5395 seconds
+Iteration 0022: Success, per iter time: 4.4860 seconds
+Iteration 0023: Success, per iter time: 3.5414 seconds
+Iteration 0024: Success, per iter time: 4.7266 seconds
+Iteration 0025: Success, per iter time: 5.1161 seconds
+Iteration 0026: Success, per iter time: 4.5640 seconds
+Iteration 0027: Success, per iter time: 4.4527 seconds
+Iteration 0028: Success, per iter time: 5.7404 seconds
+Iteration 0029: Success, per iter time: 4.5550 seconds
+Iteration 0030: Success, per iter time: 3.3990 seconds
+Iteration 0031: Success, per iter time: 3.1796 seconds
+Iteration 0032: Success, per iter time: 4.1187 seconds
+Iteration 0033: Success, per iter time: 4.8597 seconds
+Iteration 0034: Success, per iter time: 5.4691 seconds
+Iteration 0035: Success, per iter time: 2.8704 seconds
+Iteration 0036: Success, per iter time: 6.8332 seconds
+Iteration 0037: Success, per iter time: 7.3424 seconds
+Iteration 0038: Success, per iter time: 4.2660 seconds
+Iteration 0039: Success, per iter time: 4.6278 seconds
+Iteration 0040: Success, per iter time: 4.4006 seconds
+Iteration 0041: Success, per iter time: 4.4397 seconds
+Iteration 0042: Success, per iter time: 4.1886 seconds
+Iteration 0043: Success, per iter time: 4.0585 seconds
+Iteration 0044: Success, per iter time: 4.4413 seconds
+Iteration 0045: Success, per iter time: 3.5234 seconds
+Iteration 0046: Success, per iter time: 4.9402 seconds
+Iteration 0047: Success, per iter time: 4.9451 seconds
+Iteration 0048: Success, per iter time: 2.7364 seconds
+Iteration 0049: Success, per iter time: 3.8385 seconds
+Iteration 0050: Success, per iter time: 5.1040 seconds
+Iteration 0051: Success, per iter time: 2.7980 seconds
+Iteration 0052: Success, per iter time: 3.6564 seconds
+Iteration 0053: Success, per iter time: 3.5524 seconds
+Iteration 0054: Success, per iter time: 3.4544 seconds
+Iteration 0055: Success, per iter time: 4.8209 seconds
+Iteration 0056: Success, per iter time: 6.5775 seconds
+Iteration 0057: Success, per iter time: 5.2701 seconds
+Iteration 0058: Success, per iter time: 4.4245 seconds
+Iteration 0059: Success, per iter time: 4.0597 seconds
+Iteration 0060: Success, per iter time: 4.4170 seconds
+Iteration 0061: Success, per iter time: 5.8831 seconds
+Iteration 0062: Success, per iter time: 6.7021 seconds
+Iteration 0063: Success, per iter time: 7.5037 seconds
+Iteration 0064: Success, per iter time: 3.3739 seconds
+Iteration 0065: Success, per iter time: 4.0546 seconds
+Iteration 0066: Success, per iter time: 5.3562 seconds
+Iteration 0067: Success, per iter time: 4.3776 seconds
+Iteration 0068: Success, per iter time: 5.5026 seconds
+Iteration 0069: Success, per iter time: 5.8726 seconds
+Iteration 0070: Success, per iter time: 6.5082 seconds
+Iteration 0071: Success, per iter time: 7.4352 seconds
+Iteration 0072: Success, per iter time: 4.0704 seconds
+Iteration 0073: Success, per iter time: 4.9136 seconds
+Iteration 0074: Success, per iter time: 3.2808 seconds
+Iteration 0075: Success, per iter time: 6.4397 seconds
+Iteration 0076: Success, per iter time: 5.3646 seconds
+Iteration 0077: Success, per iter time: 6.1250 seconds
+Iteration 0078: Success, per iter time: 6.6462 seconds
+Iteration 0079: Success, per iter time: 6.6452 seconds
+Iteration 0080: Success, per iter time: 6.4860 seconds
+Iteration 0081: Success, per iter time: 4.6586 seconds
+Iteration 0082: Success, per iter time: 4.6622 seconds
+Iteration 0083: Success, per iter time: 5.6551 seconds
+Iteration 0084: Success, per iter time: 7.8241 seconds
+Iteration 0085: Success, per iter time: 8.4538 seconds
+Iteration 0086: Success, per iter time: 6.4265 seconds
+Iteration 0087: Success, per iter time: 7.2987 seconds
+Iteration 0088: Success, per iter time: 5.2294 seconds
+Iteration 0089: Success, per iter time: 4.7979 seconds
+Iteration 0090: Success, per iter time: 4.8898 seconds
+Iteration 0091: Success, per iter time: 5.1620 seconds
+Iteration 0092: Success, per iter time: 3.8289 seconds
+Iteration 0093: Success, per iter time: 3.3385 seconds
+Iteration 0094: Success, per iter time: 3.6716 seconds
+Iteration 0095: Success, per iter time: 4.8435 seconds
+Iteration 0096: Success, per iter time: 3.9944 seconds
+Iteration 0097: Success, per iter time: 4.4964 seconds
+Iteration 0098: Success, per iter time: 3.5292 seconds
+Iteration 0099: Success, per iter time: 3.7053 seconds
+Iteration 0100: Success, per iter time: 4.0180 seconds
+-- Statistics:
+ Average time: 4.9121 seconds
+ Std Dev time: 1.3374 seconds
+        Total:   100 runs
+    Successes:    99 runs
+    Succ Rate: 0.990000
+     Timeouts:     1 runs
+ Timeout Rate: 0.010000
+     Failures:     0 runs
+ Failure Rate: 0.000000
+-- End of SubmissionPublisherLoops1Test session --

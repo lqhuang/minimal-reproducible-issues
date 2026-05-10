@@ -65,15 +65,6 @@ OpenJDK Runtime Environment Temurin-25.0.1+8 (build 25.0.1+8-LTS)
 OpenJDK 64-Bit Server VM Temurin-25.0.1+8 (build 25.0.1+8-LTS, mixed mode, sharing)
 ```
 
-```
-reload; \
-clean; \
-set nativeConfig ~=  { _.withMode(scala.scalanative.build.Mode.releaseFast).withOptimize(true) }; \
-set ThisBuild/nativeConfig ~=  { _.withMode(scala.scalanative.build.Mode.releaseFast).withOptimize(true) }; \
-show sandbox3/nativeConfig; \
-sandbox3/run
-```
-
 ```sh-session
 $ clang++ --version
 Ubuntu clang version 18.1.3 (1ubuntu1)

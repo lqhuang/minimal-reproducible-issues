@@ -1,0 +1,5 @@
+Hello, World!
+-- Benchmark for SubmissionPublisherLoops2Test --
+-- Warming up ...
+Iteration 0001: Success, per iter time: 1.1078 seconds
+Iteration 0002: Success, per iter time: 0.9588 seconds
