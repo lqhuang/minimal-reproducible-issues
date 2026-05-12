@@ -9,6 +9,7 @@ git clone https://github.com/lqhuang/minimal-reproducible-issues --single-branch
 - `staging-with-case-class-and-circe`: for [circe/circe PR#2083](https://github.com/circe/circe/pull/2083)
 - `nested-objects-interop-between-scala-java`
 - `scala-native-java-stream`: for [scala-native/scala-native Issue#4742](https://github.com/scala-native/scala-native/issues/4742)
+- `scala-native-submission-publisher-stress-tests`: for stress tests and debugging of [scala-native/scala-native Issue#4762](https://github.com/scala-native/scala-native/pull/4762)
 
 Create new orphan branch to add new example:
 
@@ -21,6 +22,6 @@ git clean -n # to see what will be removed
 
 or
 
-```
+```sh
 ./new-orphan.sh <branchname>
 ```
