@@ -167,32 +167,32 @@ With all results collected, I expected to see a meaningful comparison table, but
 
 I then started investigating why. By commenting out the test suites one by one, **I found that the timeout issue has an accumulated effect: later test suites are more likely to time out than earlier ones.**
 
-```
-Loops1Test  <--- Partially successful, produced statistics
-Loops2Test  <--- All runs timed out
-Loops3Test  <--- All runs timed out
-Loops4Test  <--- All runs timed out
-```
-
-```
-# Loops1Test  <--- Commented out, does not run
-Loops2Test  <--- Partially successful, produced statistics
-Loops3Test  <--- All runs timed out
-Loops4Test  <--- All runs timed out
+```scala
+Loops1Test  // <--- Partially successful, produced statistics
+Loops2Test  // <--- All runs timed out
+Loops3Test  // <--- All runs timed out
+Loops4Test  // <--- All runs timed out
 ```
 
-```
-# Loops1Test  <--- Commented out, does not run
-# Loops2Test  <--- Commented out, does not run
-Loops3Test  <--- Partially successful, produced statistics
-Loops4Test  <--- All runs timed out
+```scala
+// Loops1Test  <--- Commented out, does not run
+Loops2Test     // <--- Partially successful, produced statistics
+Loops3Test     // <--- All runs timed out
+Loops4Test     // <--- All runs timed out
 ```
 
+```scala
+// Loops1Test  <--- Commented out, does not run
+// Loops2Test  <--- Commented out, does not run
+Loops3Test     // <--- Partially successful, produced statistics
+Loops4Test     // <--- All runs timed out
 ```
-# Loops1Test  <--- Commented out, does not run
-# Loops2Test  <--- Commented out, does not run
-# Loops3Test  <--- Commented out, does not run
-Loops4Test  <--- Partially successful, produced statistics
+
+```scala
+// Loops1Test  <--- Commented out, does not run
+// Loops2Test  <--- Commented out, does not run
+// Loops3Test  <--- Commented out, does not run
+Loops4Test     // <--- Partially successful, produced statistics
 ```
 
 See the log files under the `all-in-one-bench` folders for more details:
@@ -294,10 +294,14 @@ Finally, you can use `analysis.py` to analyze the log files and plot figures. En
 
 Plots for the NUC server:
 
-- <./logs/2026-05-09/nuc-server/Loops1Test.svg>
-- <./logs/2026-05-09/nuc-server/Loops2Test.svg>
-- <./logs/2026-05-09/nuc-server/Loops3Test.svg>
-- <./logs/2026-05-09/nuc-server/Loops4Test.svg>
+- ./logs/2026-05-09/nuc-server/Loops1Test.svg
+  ![](./logs/2026-05-09/nuc-server/Loops1Test.svg)
+- ./logs/2026-05-09/nuc-server/Loops2Test.svg
+  ![](./logs/2026-05-09/nuc-server/Loops2Test.svg)
+- ./logs/2026-05-09/nuc-server/Loops3Test.svg
+  ![](./logs/2026-05-09/nuc-server/Loops3Test.svg)
+- ./logs/2026-05-09/nuc-server/Loops4Test.svg
+  ![](./logs/2026-05-09/nuc-server/Loops4Test.svg)
 
 ### Machine: Dev Server
 
@@ -321,10 +325,14 @@ Plots for the NUC server:
 
 Plots for the Dev server:
 
-- <./logs/2026-05-09/dev-server/Loops1Test.svg>
-- <./logs/2026-05-09/dev-server/Loops2Test.svg>
-- <./logs/2026-05-09/dev-server/Loops3Test.svg>
-- <./logs/2026-05-09/dev-server/Loops4Test.svg>
+- ./logs/2026-05-09/dev-server/Loops1Test.svg
+  ![](./logs/2026-05-09/dev-server/Loops1Test.svg)
+- ./logs/2026-05-09/dev-server/Loops2Test.svg
+  ![](./logs/2026-05-09/dev-server/Loops2Test.svg)
+- ./logs/2026-05-09/dev-server/Loops3Test.svg
+  ![](./logs/2026-05-09/dev-server/Loops3Test.svg)
+- ./logs/2026-05-09/dev-server/Loops4Test.svg
+  ![](./logs/2026-05-09/dev-server/Loops4Test.svg)
 
 ### Machine: Mac Mini
 
@@ -360,3 +368,11 @@ Plots for the Dev server:
    This warning appears in the [mac-mini juc-atomic log](./logs/2026-05-09/mac-mini/all-in-one-bench/juc-atomic/3.8.3-fast-juc-atomic-benchmark.log) and the [mac-mini libc-stdatomic log](./logs/2026-05-09/mac-mini/all-in-one-bench/libc-stdatomic/3.8.3-fast-libc-stdatomic-benchmark.log).
 
    I haven't put too much weight on this warning yet.
+
+3. Few plots for those finished runs. (`nuc-server/standalone/juc-atomic/Loops{1,2,3}Test` completed almost all 50 runs)
+   - Loops1Test
+     ![](logs/2026-05-09/nuc-server/standalone/juc-atomic/Loops1Test/Loops1Test-juc-atomic-times.svg)
+     ![](logs/2026-05-09/nuc-server/standalone/juc-atomic/Loops1Test/Loops1Test-juc-atomic-succ.svg)
+   - Loops2Test
+     ![](logs/2026-05-09/nuc-server/standalone/juc-atomic/Loops2Test/Loops2Test-juc-atomic-times.svg)
+     ![](logs/2026-05-09/nuc-server/standalone/juc-atomic/Loops2Test/Loops2Test-juc-atomic-succ.svg)
