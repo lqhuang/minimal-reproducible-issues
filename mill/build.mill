@@ -1,0 +1,8 @@
+//| mill-version: 1.1.6
+package build
+
+import mill.scalanativelib.ScalaNativeModule
+
+object `package` extends ScalaNativeModule:
+  def scalaVersion = "3.3.7"
+  def scalaNativeVersion = "0.5.12"
